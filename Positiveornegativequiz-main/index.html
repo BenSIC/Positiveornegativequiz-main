@@ -9,76 +9,45 @@
     <link rel="stylesheet" href ="./css/style.css">
 </head>
 <body>
-    <h1 class="text-center mt-4">Postive or Negative</h1>
-    
-    <!-- Start quiz element -->
-    <div class="container d-flex justify-content-center" id="question-1">
-      <div class="card my-4 p-4 question-block" style="width: 75%;">
-        <h4 class="mb-3">Glass half full, or glass half empty?</h4>
-        <div class="row g-2">
-          <div class="col-6">
-            <button class="btn btn-outline-primary w-100 answer-btn" data-answer="A">Half full</button>
-          </div>
-          <div class="col-6">
-            <button class="btn btn-outline-primary w-100 answer-btn" data-answer="B">Half full</button>
-          </div>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            margin-top: 20px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Personality Quiz</h1>
 
-        </div>
-      </div>
-    </div>
+    <!-- Question 1 -->
+    <h2>Glass half full, or glass half empty?</h2>
+    <button data-value="negative">Half empty</button>
+    <button data-value="positive">Half full</button>
 
-        <!-- Second quiz element -->
-    <div class="container d-flex justify-content-center" id="question-2">
-      <div class="card my-4 p-4 question-block" style="width: 75%;">
-        <h4 class="mb-3">Failure or Chance to learn?</h4>
-        <div class="row g-2">
-          <div class="col-6">
-            <button class="btn btn-outline-primary w-100 answer-btn" data-answer="A">Failure</button>
-          </div>
-          <div class="col-6">
-            <button class="btn btn-outline-primary w-100 answer-btn" data-answer="B">Chance to learn</button>
-          </div>
+    <!-- Question 2 -->
+    <h2>Failure or Chance to learn?</h2>
+    <button data-value="negative">Failure</button>
+    <button data-value="positive">Chance to learn</button>
 
-        </div>
-      </div>
-    </div>
-    
+    <!-- Question 3 -->
+    <h2>If you win a dollar when you could have won 20, is it a lose or a victory?</h2>
+    <button data-value="negative">Lose</button>
+    <button data-value="positive">Victory</button>
 
-        <!-- Third quiz element -->
-    <div class="container d-flex justify-content-center" id="question-3">
-      <div class="card my-4 p-4 question-block" style="width: 75%;">
-        <h4 class="mb-3">If you win a dollar when you could have won 20, is it a lose or a victory?</h4>
-        <div class="row g-2">
-          <div class="col-6">
-            <button class="btn btn-outline-primary w-100 answer-btn" data-answer="A">Loss</button>
-          </div>
-          <div class="col-6">
-            <button class="btn btn-outline-primary w-100 answer-btn" data-answer="B">Victory</button>
-          </div>
-
-        </div>
-      </div>
-    </div>
-    
-    <!-- End quiz element -->
-    <div>
-      click the button below to see your result
-      <button class="btn btn-primary" id="show-result">Show Result</button>
-    </div>
-    <!-- Add more quiz elements here -->
-
-
-
-    <div class="container d-flex justify-content-center">
-      <button id="show-result" class="btn btn-success my-4">Show Results</button>
-    </div>    
-    <!-- Output the result here -->
-    <div class="container d-flex justify-content-center">
-      <div id="result-container" class="card p-4 mb-4" style="width: 75%; display: none;">
-        <h3>Your Result: result </h3>
-        <p id="result-text"></p>
-      </div>
-    </div>
+    <!-- Result -->
+    <div id="result"></div>
     
     <!-- Connect to your script file here -->
      <script src = "./js/script.js"></script>

@@ -1,28 +1,33 @@
 console.log("script.js connected!");
-let buttons = document.querySelectorAll(".btn");
-let useranswer = {};
-buttons.forEach(function(button) {
-  button.addEventListener("click", function() {
-    let questionId = this.getAttribute("data-question");
-    let answerValue = this.getAttribute("data-answer");
-    useranswer[questionId] = answerValue;
-    console.log(useranswer);
-  });
-  positve = 0;
-  negative = 0;
 
-  if (questionId === "q1" && answerValue === "positive") {positve += 1;}
-  if (questionId === "q1" && answerValue === "negative") {negative += 1;}
-  if (questionId === "q2" && answerValue === "positive") {positve += 1;}
-  if (questionId === "q2" && answerValue === "negative") {negative += 1;}
-  if (questionId === "q3" && answerValue === "positive") {positve += 1;} 
-  if (questionId === "q3" && answerValue === "negative") {negative += 1;}
 
-  if (positve > negative) {
-    result = console.log("You are a positive person!");
-  }
-  else if (negative > positve)  {
-    result = console.log("You are a negative person!");
-  }
-  else result = console.log("You are a neutral person!")})
-  
+
+     document.addEventListener("DOMContentLoaded", function () {
+            const resultDiv = document.getElementById("result");
+            let answers = []; // Stores "positive" or "negative"
+
+            // Attach click handlers to all buttons
+            document.querySelectorAll("button[data-value]").forEach(btn => {
+                btn.addEventListener("click", function () {
+                    const value = this.getAttribute("data-value");
+                    answers.push(value);
+
+                    // Show progress
+                    resultDiv.textContent = `Answer recorded: ${value} (${answers.length}/3 questions answered)`;
+
+                    // If all questions answered, show final personality
+                    if (answers.length === 3) {
+                        const positiveCount = answers.filter(a => a === "positive").length;
+                        const negativeCount = answers.filter(a => a === "negative").length;
+
+                        if (positiveCount > negativeCount) {
+                            resultDiv.textContent = `Your personality leans POSITIVE (${positiveCount} positive vs ${negativeCount} negative answers).`;
+                        } else if (negativeCount > positiveCount) {
+                            resultDiv.textContent = `Your personality leans NEGATIVE (${negativeCount} negative vs ${positiveCount} positive answers).`;
+                        } else {
+                            resultDiv.textContent = `Your personality is BALANCED (${positiveCount} positive vs ${negativeCount} negative answers).`;
+                        }
+                    }
+                });
+            });
+        });
